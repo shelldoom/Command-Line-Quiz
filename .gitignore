@@ -4,3 +4,4 @@ __pycache__/
 *.py
 *.db
 !game.py
+!sample.csv

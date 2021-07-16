@@ -134,21 +134,13 @@ class Game:
                 t = Table(show_header=False, box=box.HORIZONTALS)
                 t.add_column()
                 t.add_column()
-                t.add_row(
-                    "[cyan]Your Score:[/cyan] ", f"[green]{self.gameScore}[/green]"
-                )
-                t.add_row(
-                    "[cyan]Failed Questions:[/cyan] ", f"[red]{self.wrongCount}[/red]"
-                )
+                t.add_row("[cyan]Your Score:[/cyan] ", f"[green]{self.gameScore}[/green]")
+                t.add_row("[cyan]Failed Questions:[/cyan] ", f"[red]{self.wrongCount}[/red]")
                 if self.highScore > 0:
-                    t.add_row(
-                        "[cyan]Highscore:[/cyan] ", f"[yellow]{self.highScore}[/yellow]"
-                    )
+                    t.add_row("[cyan]Highscore:[/cyan] ", f"[yellow]{self.highScore}[/yellow]")
                 self.console.log(t)
                 if (
-                    self.console.input("Replay the game? [cyan](y/n)[/cyan]:")
-                    .strip()
-                    .lower()
+                    self.console.input("Replay the game? [cyan](y/n)[/cyan]:").strip().lower()
                     not in self.TRUE_STATEMENTS
                 ):
                     self.gameOver = True
@@ -158,5 +150,5 @@ class Game:
 if __name__ == "__main__":
     import os
     csv_files = [file for file in os.listdir() if '.csv' in file]
-    g = Game(random.choice(csv_files))
+    g = Game('sample.csv')
     g.start()

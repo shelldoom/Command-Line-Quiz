@@ -1,0 +1,7 @@
+
+This is a question, Answer, Option XYZ, Option ABC, Option PQR, Reason for the answer
+Test Question, Test Answer, Option T1, Option T2, Option T3, Some reason
+Question, Answer, option0, option1, option2, NULL
+Time is relative, True, False, NULL
+x% of y is y% of x, True, False, x% of y = xy/100 and y% of x = yx/100
+x >> 1 == x * 2, False, True,"Since, x << 1 == x * 2, i.e. left shift 1 is right not right shift 1."
