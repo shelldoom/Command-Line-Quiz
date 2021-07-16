@@ -67,7 +67,7 @@ class Game:
                 if self.highScore > 0
                 else None,
         ]
-        scoreBoard = filter(lambda x: x, scoreBoard)
+        scoreBoard = filter(bool, scoreBoard)
         scoreTable = Table(show_header=False, box=box.SIMPLE_HEAD)
         scoreTable.add_row(*scoreBoard)
         self.console.log(scoreTable)
