@@ -6,9 +6,11 @@ Requirements:
 - Python 3.8 or above
 - [rich](https://github.com/willmcgugan/rich)
 
+## Installation
 ```bash
 pip install -r requirements.txt
 ```
+Run `main.py`
 
 Fun way to use:
 - Create your own question database

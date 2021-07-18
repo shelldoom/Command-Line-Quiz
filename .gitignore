@@ -5,4 +5,5 @@ old_code/
 *.py
 *.db
 !game.py
+!main.py
 !sample.csv

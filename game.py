@@ -149,9 +149,3 @@ class Game:
                     self.gameOver = True
                 else:
                     self.resetGame()
-
-if __name__ == "__main__":
-    import os
-    csv_files = [file for file in os.listdir() if '.csv' in file]
-    g = Game('sample.csv')
-    g.start()
