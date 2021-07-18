@@ -11,7 +11,7 @@ class Game:
 
     console = Console(log_path=False, log_time=False, highlight=False)
 
-    def __init__(self, filename="db.csv", questionCount=10) -> None:
+    def __init__(self, filename:str="db.csv", questionCount:int=10) -> None:
         """
         Args:
             filename: str = Name of the csv file containing the questions
@@ -34,6 +34,9 @@ class Game:
         """
         with open(self.filename, "r") as csv_file:
             self.questions = list(csv.reader(csv_file))[1:]
+        for i, q in enumerate(self.questions):
+            if len(q) == 0:
+                self.questions.pop(i)
         random.shuffle(self.questions)
         if len(self.questions) >= self.questionCount:
             self.questions = random.sample(self.questions, self.questionCount)
@@ -122,7 +125,7 @@ class Game:
         self.console.log("--" * 40, end="\n\n")
         self.questionIndex += 1
 
-    def start(self):
+    def start(self) -> None:
         while not self.gameOver:
             while self.questionIndex < self.questionCount:
                 self.console.clear()
