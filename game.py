@@ -34,9 +34,10 @@ class Game:
         """
         with open(self.filename, "r") as csv_file:
             self.questions = list(csv.reader(csv_file))[1:]
-        for i, q in enumerate(self.questions):
-            if len(q) == 0:
-                self.questions.pop(i)
+        
+        while [] in self.questions:
+            self.questions.remove([])
+
         random.shuffle(self.questions)
         if len(self.questions) >= self.questionCount:
             self.questions = random.sample(self.questions, self.questionCount)
@@ -44,6 +45,7 @@ class Game:
             self.questionCount = len(self.questions)
         for i, q in enumerate(self.questions):
             self.questions[i] = list(map(str.strip, q))
+
 
     def resetGame(self) -> None:
         """
