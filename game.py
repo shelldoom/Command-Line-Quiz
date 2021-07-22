@@ -85,7 +85,7 @@ class Game:
 
     def display_question(self) -> bool:
         """
-        Returns True if question was answered with a valid option
+        Display the i_th question, where i is the index used for indicating current question
         """
         if self.questionIndex >= self.questionCount:
             raise IndexError("questionIndex out of range!")
