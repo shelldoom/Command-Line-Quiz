@@ -32,7 +32,7 @@ class Game:
         """
         Load questions
         """
-        with open(self.filename, "r") as csv_file:
+        with open(self.filename, "r", encoding="utf-8") as csv_file:
             self.questions = list(csv.reader(csv_file))[1:]
         
         while [] in self.questions:
@@ -61,6 +61,9 @@ class Game:
         self.get_questions()
 
     def display_score(self) -> None:
+        """
+        Display game scoreboard
+        """
         scoreBoard = [
             f"[green]Score: {self.gameScore}[/green]",
             f"[cyan]Left: {self.questionCount - self.questionIndex}[/cyan]",
@@ -127,7 +130,10 @@ class Game:
         self.console.log("--" * 40, end="\n\n")
         self.questionIndex += 1
 
-    def start(self) -> None:
+    def start(self) -> int:
+        """
+        Starts the game, upon finishing returns the game score
+        """
         while not self.gameOver:
             while self.questionIndex < self.questionCount:
                 self.console.clear()
@@ -151,3 +157,4 @@ class Game:
                     self.gameOver = True
                 else:
                     self.resetGame()
+        return max(self.gameScore, self.highScore)
